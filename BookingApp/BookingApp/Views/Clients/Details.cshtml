@@ -1,0 +1,48 @@
+﻿@model BookingApp.Models.Client
+
+@{
+    ViewData["Title"] = "Szczegóły Klienta";
+}
+
+<h1>Szczegóły Klienta</h1>
+
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Imię")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Nazwisko")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Numer dowodu")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdentityCardNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Numer telefonu")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Email")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj dane Klienta</a> |
+    <a asp-action="Index">Powróć do listy Klientów</a>
+</div>
