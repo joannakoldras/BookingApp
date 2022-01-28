@@ -1,0 +1,69 @@
+﻿@model BookingApp.Data.Reservation
+
+@{
+    ViewData["Title"] = "Usuwanie rezerwacji";
+}
+
+<h1>Usuwanie rezerwacji</h1>
+
+<h3>Czy chcesz usunąć tę rezerwację?</h3>
+<div>
+   
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Klient")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.Id):  @Html.DisplayFor(model => model.Client.FirstName)  @Html.DisplayFor(model => model.Client.Surname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Numer pokoju")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Room.RoomNumber)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data początkowa")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateFrom)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Data końcowa")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DateTo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Data płatności")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.DatePayment)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Cena całkowita")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice) zł.
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Liczba dni")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfDays)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayName("Zapłacono")
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IsPaid)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń rezerwację" class="btn btn-danger" /> |
+        <a asp-action="Index">Powróć do listy rezerwacji</a>
+    </form>
+</div>
