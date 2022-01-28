@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BookingApp.Data.Reservation>
+
+@{
+    ViewData["Title"] = "Rezerwacje";
+}
+
+<h1>Rezerwacje</h1>
+
+<p>
+    <a asp-action="Create">Utwórz rezerwację</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Id")
+            </th>
+            <th>
+                @Html.DisplayName("Numer pokoju")
+            </th>
+            <th>
+                @Html.DisplayName("Data początkowa")
+            </th>
+            <th>
+                @Html.DisplayName("Data końcowa")
+            </th>
+            
+            <th>
+                @Html.DisplayName("Liczba dni")
+            </th>
+            <th>
+                @Html.DisplayName("Zapłacono")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateTo)
+            </td>
+    
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDays)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPaid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
