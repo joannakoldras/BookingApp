@@ -1,0 +1,54 @@
+﻿@model BookingApp.Models.Room
+
+@{
+    ViewData["Title"] = "Tworzenie pokoju";
+}
+
+<h1>Tworzenie pokoju</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Piętro</label>
+                <input asp-for="Floor" class="form-control" />
+                <span asp-validation-for="Floor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Numer pokoju</label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Liczba łóżek dwuosobowych</label>
+                <input asp-for="NumberOfDoubleBeds" class="form-control" />
+                <span asp-validation-for="NumberOfDoubleBeds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Liczba łóżek jednoosobowych</label>
+                <input asp-for="NumberOfSingleBeds" class="form-control" />
+                <span asp-validation-for="NumberOfSingleBeds" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label class="control-label">Cena za osobę</label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Utwórz" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powróć listy pokojów </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
