@@ -1,0 +1,51 @@
+﻿@model BookingApp.Models.Client
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Usuwanie Klienta</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Client</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayName("Imię")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Nazwisko")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Numer dowodu")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdentityCardNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Numer telefonu")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayName("Email")
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Usuń" class="btn btn-danger" /> |
+        <a asp-action="Index">Powróć do listy Klientów</a>
+    </form>
+</div>
