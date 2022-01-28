@@ -1,0 +1,65 @@
+﻿@model IEnumerable<BookingApp.Models.Room>
+
+@{
+    ViewData["Title"] = "Wolne pokoje";
+}
+
+<h1>Wolne pokoje</h1>
+
+<p>
+    <a asp-action="Create">Utwórz pokój </a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Piętro")
+            </th>
+            <th>
+                @Html.DisplayName("Numer pokoju")
+            </th>
+            <th>
+                @Html.DisplayName("Liczba łóżek dwuosobowych")
+            </th>
+            <th>
+                @Html.DisplayName("Liczba łóżek jednosobowych")
+            </th>
+            <th>
+                @Html.DisplayName("Liczba osób")
+            </th>
+            <th>
+                @Html.DisplayName("Cena za osobę")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RoomNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfDoubleBeds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfSingleBeds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumbefOfPeople)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
