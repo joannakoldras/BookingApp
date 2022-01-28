@@ -1,0 +1,69 @@
+﻿@model BookingApp.Data.Reservation
+
+@{
+    ViewData["Title"] = "Edycja rezerwacji";
+}
+
+<h1>Edycja rezerwacji</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Numer pokoju</label>
+                <select asp-for="RoomId" class="form-control" asp-items="ViewBag.RoomId"></select>
+                <span asp-validation-for="RoomId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Id klienta</label>
+                <select asp-for="ClientId" class="form-control" asp-items="ViewBag.ClientId"></select>
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data początkowa</label>
+                <input asp-for="DateFrom" class="form-control" />
+                <span asp-validation-for="DateFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data końcowa</label>
+                <input asp-for="DateTo" class="form-control" />
+                <span asp-validation-for="DateTo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Data płatności </label>
+                <input asp-for="DatePayment" class="form-control" />
+                <span asp-validation-for="DatePayment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Cena całkowita </label>
+                <input asp-for="TotalPrice" class="form-control" />
+                <span asp-validation-for="TotalPrice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Liczba dni</label>
+                <input asp-for="NumberOfDays" class="form-control" />
+                <span asp-validation-for="NumberOfDays" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPaid" />     <label class="control-label">Zapłacono</label>
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Zaaktualizuj" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Powróć do listy rezerwacji</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
